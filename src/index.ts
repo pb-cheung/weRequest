@@ -1,22 +1,13 @@
-import init from "./api/init"
-import request from "./api/request"
-import uploadFile from "./api/uploadFile"
-import setSession from "./api/setSession"
-import login from "./api/login"
-import getSession from "./api/getSession"
-import getConfig from "./api/getConfig"
-import { weRequest } from "./interface"
-import { version } from './version'
+import WeRequest from "./module/core/WeRequest";
+import defaultConfig from "./store/config";
+import getInstance from "./api/getInstance";
 
-const weRequestObject: weRequest = {
-  init,
-  request,
-  uploadFile,
-  setSession,
-  login,
-  getSession,
-  getConfig,
-  version
-};
+const weRequest = getInstance(defaultConfig);
 
-export default weRequestObject;
+// @ts-ignore
+weRequest.WeRequest = WeRequest;
+
+// @ts-ignore
+weRequest.create = getInstance
+
+export default weRequest;

@@ -174,6 +174,7 @@ export interface weRequest {
     login: (callback: Function) => void;
     /* [不建议使用] 设置用户票据的值 */
     setSession: (x: string) => void;
+    create?: (x: any) => any;
     /* 获取weRequest版本 */
     version: string;
 }
